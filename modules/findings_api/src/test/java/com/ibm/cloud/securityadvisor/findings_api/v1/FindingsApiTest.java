@@ -13,13 +13,10 @@
 package com.ibm.cloud.securityadvisor.findings_api.v1;
 
 import com.ibm.cloud.sdk.core.http.Response;
-import com.ibm.cloud.sdk.core.security.Authenticator;
-import com.ibm.cloud.sdk.core.security.NoAuthAuthenticator;
 import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
 
 import com.ibm.cloud.sdk.core.util.EnvironmentUtils;
 
-import com.ibm.cloud.securityadvisor.findings_api.v1.FindingsApi;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiListNoteOccurrencesResponse;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiListNotesResponse;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiListOccurrencesResponse;
@@ -27,8 +24,9 @@ import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiListProvidersRespo
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiNote;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiNoteRelatedUrl;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiOccurrence;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiProvider;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Card;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItem;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItemTimeSeriesCardElement;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Context;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.CreateNoteOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.CreateOccurrenceOptions;
@@ -59,8 +57,6 @@ import com.ibm.cloud.securityadvisor.findings_api.v1.utils.TestUtilities;
 import java.io.IOException;
 import java.io.InputStream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -193,13 +189,13 @@ public class FindingsApiTest extends PowerMockTestCase {
     .build();
 
     // Construct an instance of the TimeSeriesCardElement model
-    // TimeSeriesCardElement cardElementModel = new TimeSeriesCardElement.Builder()
-    // .kind("TimeSeriesCardElement")
-    // .defaultTimeRange("1d")
-    // .text("testString")
-    // .defaultInterval("testString")
-    // .valueTypes(new java.util.ArrayList<FindingCountValueType>(java.util.Arrays.asList(findingCountValueTypeModel)))
-    // .build();
+    CardElementsItemTimeSeriesCardElement cardElementModel = new CardElementsItemTimeSeriesCardElement.Builder()
+    .kind("TimeSeriesCardElement")
+    .defaultTimeRange("1d")
+    .text("testString")
+    .defaultInterval("testString")
+    .valueTypes(new java.util.ArrayList<Object>(java.util.Arrays.asList(findingCountValueTypeModel)))
+    .build();
 
     // Construct an instance of the RemediationStep model
     RemediationStep remediationStepModel = new RemediationStep.Builder()
@@ -214,17 +210,17 @@ public class FindingsApiTest extends PowerMockTestCase {
     .build();
 
     // Construct an instance of the Card model
-    // Card cardModel = new Card.Builder()
-    // .section("testString")
-    // .title("testString")
-    // .subtitle("testString")
-    // .order(Long.valueOf("1"))
-    // .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
-    // .requiresConfiguration(true)
-    // .badgeText("testString")
-    // .badgeImage("testString")
-    // .elements(new java.util.ArrayList<CardElement>(java.util.Arrays.asList(cardElementModel)))
-    // .build();
+    Card cardModel = new Card.Builder()
+    .section("testString")
+    .title("testString")
+    .subtitle("testString")
+    .order(Long.valueOf("1"))
+    .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
+    .requiresConfiguration(true)
+    .badgeText("testString")
+    .badgeImage("testString")
+    .elements(new java.util.ArrayList<CardElementsItem>(java.util.Arrays.asList(cardElementModel)))
+    .build();
 
     // Construct an instance of the FindingType model
     FindingType findingTypeModel = new FindingType.Builder()
@@ -266,7 +262,7 @@ public class FindingsApiTest extends PowerMockTestCase {
     .shared(true)
     .finding(findingTypeModel)
     .kpi(kpiTypeModel)
-    // .card(cardModel)
+    .card(cardModel)
     .section(sectionModel)
     .build();
 
@@ -430,14 +426,14 @@ public class FindingsApiTest extends PowerMockTestCase {
     .text("testString")
     .build();
 
-    // // Construct an instance of the TimeSeriesCardElement model
-    // TimeSeriesCardElement cardElementModel = new TimeSeriesCardElement.Builder()
-    // .kind("TimeSeriesCardElement")
-    // .defaultTimeRange("1d")
-    // .text("testString")
-    // .defaultInterval("testString")
-    // .valueTypes(new java.util.ArrayList<FindingCountValueType>(java.util.Arrays.asList(findingCountValueTypeModel)))
-    // .build();
+    // Construct an instance of the TimeSeriesCardElement model
+    CardElementsItemTimeSeriesCardElement cardElementModel = new CardElementsItemTimeSeriesCardElement.Builder()
+    .kind("TimeSeriesCardElement")
+    .defaultTimeRange("1d")
+    .text("testString")
+    .defaultInterval("testString")
+    .valueTypes(new java.util.ArrayList<Object>(java.util.Arrays.asList(findingCountValueTypeModel)))
+    .build();
 
     // Construct an instance of the RemediationStep model
     RemediationStep remediationStepModel = new RemediationStep.Builder()
@@ -451,18 +447,18 @@ public class FindingsApiTest extends PowerMockTestCase {
     .url("testString")
     .build();
 
-    // // Construct an instance of the Card model
-    // Card cardModel = new Card.Builder()
-    // .section("testString")
-    // .title("testString")
-    // .subtitle("testString")
-    // .order(Long.valueOf("1"))
-    // .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
-    // .requiresConfiguration(true)
-    // .badgeText("testString")
-    // .badgeImage("testString")
-    // .elements(new java.util.ArrayList<CardElement>(java.util.Arrays.asList(cardElementModel)))
-    // .build();
+    // Construct an instance of the Card model
+    Card cardModel = new Card.Builder()
+    .section("testString")
+    .title("testString")
+    .subtitle("testString")
+    .order(Long.valueOf("1"))
+    .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
+    .requiresConfiguration(true)
+    .badgeText("testString")
+    .badgeImage("testString")
+    .elements(new java.util.ArrayList<CardElementsItem>(java.util.Arrays.asList(cardElementModel)))
+    .build();
 
     // Construct an instance of the FindingType model
     FindingType findingTypeModel = new FindingType.Builder()
@@ -505,7 +501,7 @@ public class FindingsApiTest extends PowerMockTestCase {
     .shared(true)
     .finding(findingTypeModel)
     .kpi(kpiTypeModel)
-    // .card(cardModel)
+    .card(cardModel)
     .section(sectionModel)
     .build();
 

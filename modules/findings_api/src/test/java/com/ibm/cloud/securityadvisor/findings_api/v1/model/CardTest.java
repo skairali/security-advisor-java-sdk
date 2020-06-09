@@ -14,15 +14,10 @@
 package com.ibm.cloud.securityadvisor.findings_api.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.Card;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.FindingCountValueType;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItemTimeSeriesCardElement;
 import com.ibm.cloud.securityadvisor.findings_api.v1.utils.TestUtilities;
 
 import java.io.InputStream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -60,38 +55,38 @@ public class CardTest {
     assertEquals(cardElementModel.defaultInterval(), "testString");
     assertEquals(cardElementModel.valueTypes(), new java.util.ArrayList<Object>(java.util.Arrays.asList(findingCountValueTypeModel)));
 
-    // Card cardModel = new Card.Builder()
-    //   .section("testString")
-    //   .title("testString")
-    //   .subtitle("testString")
-    //   .order(Long.valueOf("1"))
-    //   .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
-    //   .requiresConfiguration(true)
-    //   .badgeText("testString")
-    //   .badgeImage("testString")
-    //   .elements(new java.util.ArrayList<>(java.util.Arrays.asList(cardElementModel)))
-    //   .build();
-    // assertEquals(cardModel.section(), "testString");
-    // assertEquals(cardModel.title(), "testString");
-    // assertEquals(cardModel.subtitle(), "testString");
-    // assertEquals(cardModel.order(), Long.valueOf("1"));
-    // assertEquals(cardModel.findingNoteNames(), new java.util.ArrayList<String>(java.util.Arrays.asList("testString")));
-    // assertEquals(cardModel.requiresConfiguration(), Boolean.valueOf(true));
-    // assertEquals(cardModel.badgeText(), "testString");
-    // assertEquals(cardModel.badgeImage(), "testString");
-    // assertEquals(cardModel.elements(), new java.util.ArrayList<>(java.util.Arrays.asList(cardElementModel)));
+    Card cardModel = new Card.Builder()
+      .section("testString")
+      .title("testString")
+      .subtitle("testString")
+      .order(Long.valueOf("1"))
+      .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
+      .requiresConfiguration(true)
+      .badgeText("testString")
+      .badgeImage("testString")
+      .elements(new java.util.ArrayList<>(java.util.Arrays.asList(cardElementModel)))
+      .build();
+    assertEquals(cardModel.section(), "testString");
+    assertEquals(cardModel.title(), "testString");
+    assertEquals(cardModel.subtitle(), "testString");
+    assertEquals(cardModel.order(), Long.valueOf("1"));
+    assertEquals(cardModel.findingNoteNames(), new java.util.ArrayList<String>(java.util.Arrays.asList("testString")));
+    assertEquals(cardModel.requiresConfiguration(), Boolean.valueOf(true));
+    assertEquals(cardModel.badgeText(), "testString");
+    assertEquals(cardModel.badgeImage(), "testString");
+    assertEquals(cardModel.elements(), new java.util.ArrayList<>(java.util.Arrays.asList(cardElementModel)));
 
-    // String json = TestUtilities.serialize(cardModel);
+    String json = TestUtilities.serialize(cardModel);
 
-    // Card cardModelNew = TestUtilities.deserialize(json, Card.class);
-    // assertTrue(cardModelNew instanceof Card);
-    // assertEquals(cardModelNew.section(), "testString");
-    // assertEquals(cardModelNew.title(), "testString");
-    // assertEquals(cardModelNew.subtitle(), "testString");
-    // assertEquals(cardModelNew.order(), Long.valueOf("1"));
-    // assertEquals(cardModelNew.requiresConfiguration(), Boolean.valueOf(true));
-    // assertEquals(cardModelNew.badgeText(), "testString");
-    // assertEquals(cardModelNew.badgeImage(), "testString");
+    Card cardModelNew = TestUtilities.deserialize(json, Card.class);
+    assertTrue(cardModelNew instanceof Card);
+    assertEquals(cardModelNew.section(), "testString");
+    assertEquals(cardModelNew.title(), "testString");
+    assertEquals(cardModelNew.subtitle(), "testString");
+    assertEquals(cardModelNew.order(), Long.valueOf("1"));
+    assertEquals(cardModelNew.requiresConfiguration(), Boolean.valueOf(true));
+    assertEquals(cardModelNew.badgeText(), "testString");
+    assertEquals(cardModelNew.badgeImage(), "testString");
   }
 
   @Test(expectedExceptions = IllegalArgumentException.class)

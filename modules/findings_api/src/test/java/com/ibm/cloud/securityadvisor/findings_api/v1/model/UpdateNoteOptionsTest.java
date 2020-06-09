@@ -14,22 +14,10 @@
 package com.ibm.cloud.securityadvisor.findings_api.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiNoteRelatedUrl;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.Card;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.FindingCountValueType;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.FindingType;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.KpiType;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.RemediationStep;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.Reporter;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.Section;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItemTimeSeriesCardElement;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.UpdateNoteOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.utils.TestUtilities;
 
 import java.io.InputStream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 

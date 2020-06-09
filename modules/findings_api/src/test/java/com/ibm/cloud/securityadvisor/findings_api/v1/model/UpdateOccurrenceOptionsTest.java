@@ -14,20 +14,10 @@
 package com.ibm.cloud.securityadvisor.findings_api.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.Context;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.DataTransferred;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.Finding;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.Kpi;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.NetworkConnection;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.RemediationStep;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.SocketAddress;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.UpdateOccurrenceOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.utils.TestUtilities;
 
 import java.io.InputStream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 

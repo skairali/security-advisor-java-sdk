@@ -14,14 +14,10 @@
 package com.ibm.cloud.securityadvisor.notifications_api.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.model.CreateNotificationChannelOptions;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.model.NotificationChannelAlertSourceItem;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.utils.TestUtilities;
 
 import java.io.InputStream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 

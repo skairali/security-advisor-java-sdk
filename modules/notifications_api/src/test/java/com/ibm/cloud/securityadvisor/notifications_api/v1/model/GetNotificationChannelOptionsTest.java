@@ -14,7 +14,6 @@
 package com.ibm.cloud.securityadvisor.notifications_api.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.model.GetNotificationChannelOptions;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.utils.TestUtilities;
 
 import java.io.InputStream;

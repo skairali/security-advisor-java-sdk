@@ -30,9 +30,7 @@ import com.ibm.cloud.securityadvisor.findings_api.v1.model.PostGraphOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.RemediationStep;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Reporter;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.SocketAddress;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItemTimeSeriesCardElement;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.UpdateOccurrenceOptions;
-import com.ibm.cloud.sdk.core.service.exception.ConflictException;
 import com.ibm.cloud.sdk.core.service.exception.NotFoundException;
 import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
 

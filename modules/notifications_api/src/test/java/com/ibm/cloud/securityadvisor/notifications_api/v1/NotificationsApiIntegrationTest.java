@@ -4,20 +4,13 @@ import com.ibm.cloud.sdk.core.security.Authenticator;
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
 import com.ibm.cloud.sdk.core.service.exception.InternalServerErrorException;
 import com.ibm.cloud.sdk.core.service.exception.NotFoundException;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.NotificationsApi;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.model.BulkDeleteChannelsResponse;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.model.ChannelResponseDefinition;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.model.ChannelResponseDefinitionAlertSourceItem;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.model.ChannelResponseDefinitionSeverity;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.model.CreateChannelsResponse;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.model.CreateNotificationChannelOptions;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.model.DeleteChannelResponse;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.model.DeleteNotificationChannelOptions;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.model.DeleteNotificationChannelsOptions;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.model.GetChannelResponse;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.model.GetChannelResponseChannel;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.model.GetChannelResponseChannelAlertSourceItem;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.model.GetChannelResponseChannelSeverity;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.model.GetNotificationChannelOptions;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.model.GetPublicKeyOptions;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.model.ListAllChannelsOptions;
@@ -32,7 +25,6 @@ import com.ibm.cloud.securityadvisor.notifications_api.v1.model.UpdateNotificati
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import com.ibm.cloud.sdk.core.http.Response;
