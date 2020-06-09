@@ -5,13 +5,6 @@ dist: xenial
 jdk:
 - openjdk8
 
-notifications:
-  email: true
-
-env:
-  global:
-    - MVN_ARGS="--settings build/.travis.settings.xml"
-
 branches:
   except:
   - gh-pages
@@ -23,6 +16,7 @@ cache:
 before_install:
 - sudo apt-get update
 - sudo apt-get install python
+- mvn clean package
 - nvm install 12
 - npm install -g npm@6.x
 
