@@ -20,7 +20,7 @@ public class CreateCard {
         .text("testString")
         .build();
 
-        NumericCardElement cardElementModel = new NumericCardElement.Builder()
+        CardElementsItemNumericCardElement cardElementModel = new CardElementsItemNumericCardElement.Builder()
         .kind("NUMERIC")
         .defaultTimeRange("1d")
         .text("sample_text")
@@ -37,7 +37,7 @@ public class CreateCard {
         .title("testString")
         .subtitle("testString")
         .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
-        .elements(new java.util.ArrayList<CardElement>(java.util.Arrays.asList(cardElementModel)))
+        .elements(new java.util.ArrayList<CardElementsItem>(java.util.Arrays.asList(cardElementModel)))
         .build();
 
         Reporter reporterModel = new Reporter.Builder()

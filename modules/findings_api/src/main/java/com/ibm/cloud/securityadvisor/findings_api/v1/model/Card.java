@@ -35,7 +35,7 @@ public class Card extends GenericModel {
   protected String badgeText;
   @SerializedName("badge_image")
   protected String badgeImage;
-  protected List<CardElement> elements;
+  protected List<CardElementsItem> elements;
 
   /**
    * Builder.
@@ -49,7 +49,7 @@ public class Card extends GenericModel {
     private Boolean requiresConfiguration;
     private String badgeText;
     private String badgeImage;
-    private List<CardElement> elements;
+    private List<CardElementsItem> elements;
 
     private Builder(Card card) {
       this.section = card.section;
@@ -78,7 +78,7 @@ public class Card extends GenericModel {
      * @param findingNoteNames the findingNoteNames
      * @param elements the elements
      */
-    public Builder(String section, String title, String subtitle, List<String> findingNoteNames, List<CardElement> elements) {
+    public Builder(String section, String title, String subtitle, List<String> findingNoteNames, List<CardElementsItem> elements) {
       this.section = section;
       this.title = title;
       this.subtitle = subtitle;
@@ -89,7 +89,7 @@ public class Card extends GenericModel {
     /**
      * Builds a Card.
      *
-     * @return the new Card instance
+     * @return the card
      */
     public Card build() {
       return new Card(this);
@@ -117,11 +117,11 @@ public class Card extends GenericModel {
      * @param elements the new elements
      * @return the Card builder
      */
-    public Builder addElements(CardElement elements) {
+    public Builder addElements(CardElementsItem elements) {
       com.ibm.cloud.sdk.core.util.Validator.notNull(elements,
         "elements cannot be null");
       if (this.elements == null) {
-        this.elements = new ArrayList<CardElement>();
+        this.elements = new ArrayList<CardElementsItem>();
       }
       this.elements.add(elements);
       return this;
@@ -223,7 +223,7 @@ public class Card extends GenericModel {
      * @param elements the elements
      * @return the Card builder
      */
-    public Builder elements(List<CardElement> elements) {
+    public Builder elements(List<CardElementsItem> elements) {
       this.elements = elements;
       return this;
     }
@@ -353,7 +353,7 @@ public class Card extends GenericModel {
    *
    * @return the elements
    */
-  public List<CardElement> elements() {
+  public List<CardElementsItem> elements() {
     return elements;
   }
 }

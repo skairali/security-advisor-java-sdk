@@ -12,27 +12,40 @@
  */
 package com.ibm.cloud.securityadvisor.findings_api.v1.model;
 
-import com.google.gson.annotations.SerializedName;
-
 /**
  * A card element with a single numeric value.
  */
-public class NumericCardElement extends CardElement {
+public class CardElementsItemNumericCardElement extends CardElementsItem {
 
   /**
    * Kind of element
-   * - NUMERIC&amp;#58; Single numeric value
-   * - BREAKDOWN&amp;#58; Breakdown of numeric values
-   * - TIME_SERIES&amp;#58; Time-series of numeric values.
+   * - NUMERIC&#58; Single numeric value
+   * - BREAKDOWN&#58; Breakdown of numeric values
+   * - TIME_SERIES&#58; Time-series of numeric values.
    */
   public interface Kind {
-    /** NUMERIC. */
+    /** numeric. */
     String NUMERIC = "NUMERIC";
+    /** breakdown. */
+    String BREAKDOWN = "BREAKDOWN";
+    /** time_series. */
+    String TIME_SERIES = "TIME_SERIES";
   }
 
-  protected String text;
-  @SerializedName("value_type")
-  protected Object valueType;
+  /**
+   * The default time range of this card element.
+   */
+  public interface DefaultTimeRange {
+    /** one_day. */
+    String ONE_DAY = "1d";
+    /** two_day. */
+    String TWO_DAY = "2d";
+    /** three_day. */
+    String THREE_DAY = "3d";
+    /** four_day. */
+    String FOUR_DAY = "4d";
+  }
+
 
   /**
    * Builder.
@@ -43,11 +56,11 @@ public class NumericCardElement extends CardElement {
     private String text;
     private Object valueType;
 
-    public Builder(NumericCardElement numericCardElement) {
-      this.kind = numericCardElement.kind;
-      this.defaultTimeRange = numericCardElement.defaultTimeRange;
-      this.text = numericCardElement.text;
-      this.valueType = numericCardElement.valueType;
+    public Builder(CardElementsItem cardElementsItemNumericCardElement) {
+      this.kind = cardElementsItemNumericCardElement.kind;
+      this.defaultTimeRange = cardElementsItemNumericCardElement.defaultTimeRange;
+      this.text = cardElementsItemNumericCardElement.text;
+      this.valueType = cardElementsItemNumericCardElement.valueType;
     }
 
     /**
@@ -70,19 +83,19 @@ public class NumericCardElement extends CardElement {
     }
 
     /**
-     * Builds a NumericCardElement.
+     * Builds a CardElementsItemNumericCardElement.
      *
-     * @return the new NumericCardElement instance
+     * @return the cardElementsItemNumericCardElement
      */
-    public NumericCardElement build() {
-      return new NumericCardElement(this);
+    public CardElementsItemNumericCardElement build() {
+      return new CardElementsItemNumericCardElement(this);
     }
 
     /**
      * Set the kind.
      *
      * @param kind the kind
-     * @return the NumericCardElement builder
+     * @return the CardElementsItemNumericCardElement builder
      */
     public Builder kind(String kind) {
       this.kind = kind;
@@ -93,7 +106,7 @@ public class NumericCardElement extends CardElement {
      * Set the defaultTimeRange.
      *
      * @param defaultTimeRange the defaultTimeRange
-     * @return the NumericCardElement builder
+     * @return the CardElementsItemNumericCardElement builder
      */
     public Builder defaultTimeRange(String defaultTimeRange) {
       this.defaultTimeRange = defaultTimeRange;
@@ -104,7 +117,7 @@ public class NumericCardElement extends CardElement {
      * Set the text.
      *
      * @param text the text
-     * @return the NumericCardElement builder
+     * @return the CardElementsItemNumericCardElement builder
      */
     public Builder text(String text) {
       this.text = text;
@@ -115,7 +128,7 @@ public class NumericCardElement extends CardElement {
      * Set the valueType.
      *
      * @param valueType the valueType
-     * @return the NumericCardElement builder
+     * @return the CardElementsItemNumericCardElement builder
      */
     public Builder valueType(Object valueType) {
       this.valueType = valueType;
@@ -123,7 +136,7 @@ public class NumericCardElement extends CardElement {
     }
   }
 
-  protected NumericCardElement(Builder builder) {
+  protected CardElementsItemNumericCardElement(Builder builder) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(builder.kind,
       "kind cannot be null");
     com.ibm.cloud.sdk.core.util.Validator.notNull(builder.text,
@@ -139,30 +152,10 @@ public class NumericCardElement extends CardElement {
   /**
    * New builder.
    *
-   * @return a NumericCardElement builder
+   * @return a CardElementsItemNumericCardElement builder
    */
   public Builder newBuilder() {
     return new Builder(this);
-  }
-
-  /**
-   * Gets the text.
-   *
-   * The text of this card element.
-   *
-   * @return the text
-   */
-  public String text() {
-    return text;
-  }
-
-  /**
-   * Gets the valueType.
-   *
-   * @return the valueType
-   */
-  public Object valueType() {
-    return valueType;
   }
 }
 

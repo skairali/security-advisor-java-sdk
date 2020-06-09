@@ -12,28 +12,25 @@
  */
 package com.ibm.cloud.securityadvisor.findings_api.v1.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.annotations.SerializedName;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * FindingCountValueType.
+ * KpiValueType.
  */
-public class FindingCountValueType extends GenericModel {
+public class KpiValueType extends GenericModel {
 
   /**
-   * Kind of element - FINDING_COUNT&#58; Kind of value derived from a count of finding occurrences.
+   * Kind of element - KPI&#58; Kind of value derived from a KPI occurrence.
    */
   public interface Kind {
-    /** finding_count. */
-    String FINDING_COUNT = "FINDING_COUNT";
+    /** kpi. */
+    String KPI = "KPI";
   }
 
   protected String kind;
-  @SerializedName("finding_note_names")
-  protected List<String> findingNoteNames;
+  @SerializedName("kpi_note_name")
+  protected String kpiNoteName;
   protected String text;
 
   /**
@@ -41,13 +38,13 @@ public class FindingCountValueType extends GenericModel {
    */
   public static class Builder {
     private String kind;
-    private List<String> findingNoteNames;
+    private String kpiNoteName;
     private String text;
 
-    private Builder(FindingCountValueType findingCountValueType) {
-      this.kind = findingCountValueType.kind;
-      this.findingNoteNames = findingCountValueType.findingNoteNames;
-      this.text = findingCountValueType.text;
+    private Builder(KpiValueType kpiValueType) {
+      this.kind = kpiValueType.kind;
+      this.kpiNoteName = kpiValueType.kpiNoteName;
+      this.text = kpiValueType.text;
     }
 
     /**
@@ -60,39 +57,24 @@ public class FindingCountValueType extends GenericModel {
      * Instantiates a new builder with required properties.
      *
      * @param kind the kind
-     * @param findingNoteNames the findingNoteNames
+     * @param kpiNoteName the kpiNoteName
      * @param text the text
      */
-    public Builder(String kind, List<String> findingNoteNames, String text) {
+    public Builder(String kind, String kpiNoteName, String text) {
       this.kind = kind;
-      this.findingNoteNames = findingNoteNames;
+      this.kpiNoteName = kpiNoteName;
       this.text = text;
     }
 
     /**
-     * Builds a FindingCountValueType.
+     * Builds a kpiValueType.
      *
-     * @return the findingCountValueType
+     * @return the kpiValueType
      */
-    public FindingCountValueType build() {
-      return new FindingCountValueType(this);
+    public KpiValueType build() {
+      return new KpiValueType(this);
     }
 
-    /**
-     * Adds an findingNoteNames to findingNoteNames.
-     *
-     * @param findingNoteNames the new findingNoteNames
-     * @return the FindingCountValueType builder
-     */
-    public Builder addFindingNoteNames(String findingNoteNames) {
-      com.ibm.cloud.sdk.core.util.Validator.notNull(findingNoteNames,
-        "findingNoteNames cannot be null");
-      if (this.findingNoteNames == null) {
-        this.findingNoteNames = new ArrayList<String>();
-      }
-      this.findingNoteNames.add(findingNoteNames);
-      return this;
-    }
 
     /**
      * Set the kind.
@@ -106,14 +88,14 @@ public class FindingCountValueType extends GenericModel {
     }
 
     /**
-     * Set the findingNoteNames.
-     * Existing findingNoteNames will be replaced.
+     * Set the kpiNoteName.
+     * Existing kpiNoteName will be replaced.
      *
-     * @param findingNoteNames the findingNoteNames
-     * @return the FindingCountValueType builder
+     * @param kpiNoteName the kpiNoteName
+     * @return the KpiValueType builder
      */
-    public Builder findingNoteNames(List<String> findingNoteNames) {
-      this.findingNoteNames = findingNoteNames;
+    public Builder kpiNoteName(String kpiNoteName) {
+      this.kpiNoteName = kpiNoteName;
       return this;
     }
 
@@ -129,15 +111,15 @@ public class FindingCountValueType extends GenericModel {
     }
   }
 
-  protected FindingCountValueType(Builder builder) {
+  protected KpiValueType(Builder builder) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(builder.kind,
       "kind cannot be null");
-    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.findingNoteNames,
-      "findingNoteNames cannot be null");
+    com.ibm.cloud.sdk.core.util.Validator.notNull(builder.kpiNoteName,
+      "kpiNoteName cannot be null");
     com.ibm.cloud.sdk.core.util.Validator.notNull(builder.text,
       "text cannot be null");
     kind = builder.kind;
-    findingNoteNames = builder.findingNoteNames;
+    kpiNoteName = builder.kpiNoteName;
     text = builder.text;
   }
 
@@ -162,14 +144,14 @@ public class FindingCountValueType extends GenericModel {
   }
 
   /**
-   * Gets the findingNoteNames.
+   * Gets the kpiNoteName.
    *
-   * the names of the finding note associated that act as filters for counting the occurrences.
+   * The name of the kpi note associated to the occurrence with the value for this card element value type
    *
-   * @return the findingNoteNames
+   * @return the kpiNoteName
    */
-  public List<String> findingNoteNames() {
-    return findingNoteNames;
+  public String kpiNoteName() {
+    return kpiNoteName;
   }
 
   /**

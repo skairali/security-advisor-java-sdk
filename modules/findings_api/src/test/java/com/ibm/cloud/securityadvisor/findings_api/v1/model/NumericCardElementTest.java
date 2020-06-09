@@ -14,7 +14,7 @@
 package com.ibm.cloud.securityadvisor.findings_api.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.NumericCardElement;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItemNumericCardElement;
 import com.ibm.cloud.securityadvisor.findings_api.v1.utils.TestUtilities;
 
 import java.io.InputStream;
@@ -34,22 +34,22 @@ public class NumericCardElementTest {
 
   @Test
   public void testNumericCardElement() throws Throwable {
-    NumericCardElement numericCardElementModel = new NumericCardElement.Builder()
-      .kind("NUMERIC")
+    CardElementsItemNumericCardElement numericCardElementModel = new CardElementsItemNumericCardElement.Builder()
+      .kind("NumericCardElement")
       .defaultTimeRange("1d")
       .text("testString")
       .valueType("testString")
       .build();
-    assertEquals(numericCardElementModel.kind(), "NUMERIC");
+    assertEquals(numericCardElementModel.kind(), "NumericCardElement");
     assertEquals(numericCardElementModel.defaultTimeRange(), "1d");
     assertEquals(numericCardElementModel.text(), "testString");
     assertEquals(numericCardElementModel.valueType(), "testString");
 
     String json = TestUtilities.serialize(numericCardElementModel);
 
-    NumericCardElement numericCardElementModelNew = TestUtilities.deserialize(json, NumericCardElement.class);
-    assertTrue(numericCardElementModelNew instanceof NumericCardElement);
-    assertEquals(numericCardElementModelNew.kind(), "NUMERIC");
+    CardElementsItemNumericCardElement numericCardElementModelNew = TestUtilities.deserialize(json, CardElementsItemNumericCardElement.class);
+    assertTrue(numericCardElementModelNew instanceof CardElementsItemNumericCardElement);
+    assertEquals(numericCardElementModelNew.kind(), "NumericCardElement");
     assertEquals(numericCardElementModelNew.defaultTimeRange(), "1d");
     assertEquals(numericCardElementModelNew.text(), "testString");
     assertEquals(numericCardElementModelNew.valueType(), "testString");
@@ -57,7 +57,7 @@ public class NumericCardElementTest {
 
   @Test(expectedExceptions = IllegalArgumentException.class)
   public void testNumericCardElementError() throws Throwable {
-    new NumericCardElement.Builder().build();
+    new CardElementsItemNumericCardElement.Builder().build();
   }
 
 }

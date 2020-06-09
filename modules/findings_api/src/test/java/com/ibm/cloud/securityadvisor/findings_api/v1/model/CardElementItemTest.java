@@ -14,7 +14,6 @@
 package com.ibm.cloud.securityadvisor.findings_api.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.ValueType;
 import com.ibm.cloud.securityadvisor.findings_api.v1.utils.TestUtilities;
 
 import java.io.InputStream;
@@ -26,16 +25,16 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 /**
- * Unit test class for the ValueType model.
+ * Unit test class for the CardElement model.
  */
-public class ValueTypeTest {
+public class CardElementItemTest {
   final HashMap<String, InputStream> mockStreamMap = TestUtilities.createMockStreamMap();
   final List<FileWithMetadata> mockListFileWithMetadata = TestUtilities.creatMockListFileWithMetadata();
 
   // TODO: Add tests for models that are abstract
   @Test
-  public void testValueType() throws Throwable {
-    ValueType valueTypeModel = new ValueType();
-    assertNotNull(valueTypeModel);
+  public void testCardElement() throws Throwable {
+    CardElementsItem cardElementModel = new CardElementsItem();
+    assertNotNull(cardElementModel);
   }
 }

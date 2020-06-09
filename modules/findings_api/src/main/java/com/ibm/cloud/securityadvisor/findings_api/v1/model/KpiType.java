@@ -21,12 +21,12 @@ import com.ibm.cloud.sdk.core.service.model.GenericModel;
 public class KpiType extends GenericModel {
 
   /**
-   * The aggregation type of the KPI values. - SUM&amp;#58; A single-value metrics aggregation type that sums up numeric
+   * The aggregation type of the KPI values. - SUM&#58; A single-value metrics aggregation type that sums up numeric
    * values
    *   that are extracted from KPI occurrences.
    */
   public interface AggregationType {
-    /** SUM. */
+    /** sum. */
     String SUM = "SUM";
   }
 
@@ -61,7 +61,7 @@ public class KpiType extends GenericModel {
     /**
      * Builds a KpiType.
      *
-     * @return the new KpiType instance
+     * @return the kpiType
      */
     public KpiType build() {
       return new KpiType(this);
@@ -97,7 +97,7 @@ public class KpiType extends GenericModel {
   /**
    * Gets the aggregationType.
    *
-   * The aggregation type of the KPI values. - SUM&amp;#58; A single-value metrics aggregation type that sums up numeric
+   * The aggregation type of the KPI values. - SUM&#58; A single-value metrics aggregation type that sums up numeric
    * values
    *   that are extracted from KPI occurrences.
    *

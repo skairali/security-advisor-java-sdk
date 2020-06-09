@@ -15,33 +15,40 @@ package com.ibm.cloud.securityadvisor.findings_api.v1.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.annotations.SerializedName;
-
 /**
  * A card element with a time series chart.
  */
-public class TimeSeriesCardElement extends CardElement {
+public class CardElementsItemTimeSeriesCardElement extends CardElementsItem {
 
   /**
    * Kind of element
-   * - NUMERIC&amp;#58; Single numeric value
-   * - BREAKDOWN&amp;#58; Breakdown of numeric values
-   * - TIME_SERIES&amp;#58; Time-series of numeric values.
+   * - NUMERIC&#58; Single numeric value
+   * - BREAKDOWN&#58; Breakdown of numeric values
+   * - TIME_SERIES&#58; Time-series of numeric values.
    */
   public interface Kind {
-    /** NUMERIC. */
+    /** numeric. */
     String NUMERIC = "NUMERIC";
-    /** BREAKDOWN. */
+    /** breakdown. */
     String BREAKDOWN = "BREAKDOWN";
-    /** TIME_SERIES. */
+    /** time_series. */
     String TIME_SERIES = "TIME_SERIES";
   }
 
-  protected String text;
-  @SerializedName("default_interval")
-  protected String defaultInterval;
-  @SerializedName("value_types")
-  protected List<FindingCountValueType> valueTypes;
+  /**
+   * The default time range of this card element.
+   */
+  public interface DefaultTimeRange {
+    /** one_day. */
+    String ONE_DAY = "1d";
+    /** two_day. */
+    String TWO_DAY = "2d";
+    /** three_day. */
+    String THREE_DAY = "3d";
+    /** four_day. */
+    String FOUR_DAY = "4d";
+  }
+
 
   /**
    * Builder.
@@ -51,14 +58,14 @@ public class TimeSeriesCardElement extends CardElement {
     private String defaultTimeRange;
     private String text;
     private String defaultInterval;
-    private List<FindingCountValueType> valueTypes;
+    private List<Object> valueTypes;
 
-    public Builder(TimeSeriesCardElement timeSeriesCardElement) {
-      this.kind = timeSeriesCardElement.kind;
-      this.defaultTimeRange = timeSeriesCardElement.defaultTimeRange;
-      this.text = timeSeriesCardElement.text;
-      this.defaultInterval = timeSeriesCardElement.defaultInterval;
-      this.valueTypes = timeSeriesCardElement.valueTypes;
+    public Builder(CardElementsItem cardElementsItemTimeSeriesCardElement) {
+      this.kind = cardElementsItemTimeSeriesCardElement.kind;
+      this.defaultTimeRange = cardElementsItemTimeSeriesCardElement.defaultTimeRange;
+      this.text = cardElementsItemTimeSeriesCardElement.text;
+      this.defaultInterval = cardElementsItemTimeSeriesCardElement.defaultInterval;
+      this.valueTypes = cardElementsItemTimeSeriesCardElement.valueTypes;
     }
 
     /**
@@ -74,32 +81,32 @@ public class TimeSeriesCardElement extends CardElement {
      * @param text the text
      * @param valueTypes the valueTypes
      */
-    public Builder(String kind, String text, List<FindingCountValueType> valueTypes) {
+    public Builder(String kind, String text, List<Object> valueTypes) {
       this.kind = kind;
       this.text = text;
       this.valueTypes = valueTypes;
     }
 
     /**
-     * Builds a TimeSeriesCardElement.
+     * Builds a CardElementsItemTimeSeriesCardElement.
      *
-     * @return the new TimeSeriesCardElement instance
+     * @return the cardElementsItemTimeSeriesCardElement
      */
-    public TimeSeriesCardElement build() {
-      return new TimeSeriesCardElement(this);
+    public CardElementsItemTimeSeriesCardElement build() {
+      return new CardElementsItemTimeSeriesCardElement(this);
     }
 
     /**
      * Adds an valueTypes to valueTypes.
      *
      * @param valueTypes the new valueTypes
-     * @return the TimeSeriesCardElement builder
+     * @return the CardElementsItemTimeSeriesCardElement builder
      */
-    public Builder addValueTypes(FindingCountValueType valueTypes) {
+    public Builder addValueTypes(Object valueTypes) {
       com.ibm.cloud.sdk.core.util.Validator.notNull(valueTypes,
         "valueTypes cannot be null");
       if (this.valueTypes == null) {
-        this.valueTypes = new ArrayList<FindingCountValueType>();
+        this.valueTypes = new ArrayList<Object>();
       }
       this.valueTypes.add(valueTypes);
       return this;
@@ -109,7 +116,7 @@ public class TimeSeriesCardElement extends CardElement {
      * Set the kind.
      *
      * @param kind the kind
-     * @return the TimeSeriesCardElement builder
+     * @return the CardElementsItemTimeSeriesCardElement builder
      */
     public Builder kind(String kind) {
       this.kind = kind;
@@ -120,7 +127,7 @@ public class TimeSeriesCardElement extends CardElement {
      * Set the defaultTimeRange.
      *
      * @param defaultTimeRange the defaultTimeRange
-     * @return the TimeSeriesCardElement builder
+     * @return the CardElementsItemTimeSeriesCardElement builder
      */
     public Builder defaultTimeRange(String defaultTimeRange) {
       this.defaultTimeRange = defaultTimeRange;
@@ -131,7 +138,7 @@ public class TimeSeriesCardElement extends CardElement {
      * Set the text.
      *
      * @param text the text
-     * @return the TimeSeriesCardElement builder
+     * @return the CardElementsItemTimeSeriesCardElement builder
      */
     public Builder text(String text) {
       this.text = text;
@@ -142,7 +149,7 @@ public class TimeSeriesCardElement extends CardElement {
      * Set the defaultInterval.
      *
      * @param defaultInterval the defaultInterval
-     * @return the TimeSeriesCardElement builder
+     * @return the CardElementsItemTimeSeriesCardElement builder
      */
     public Builder defaultInterval(String defaultInterval) {
       this.defaultInterval = defaultInterval;
@@ -154,15 +161,15 @@ public class TimeSeriesCardElement extends CardElement {
      * Existing valueTypes will be replaced.
      *
      * @param valueTypes the valueTypes
-     * @return the TimeSeriesCardElement builder
+     * @return the CardElementsItemTimeSeriesCardElement builder
      */
-    public Builder valueTypes(List<FindingCountValueType> valueTypes) {
+    public Builder valueTypes(List<Object> valueTypes) {
       this.valueTypes = valueTypes;
       return this;
     }
   }
 
-  protected TimeSeriesCardElement(Builder builder) {
+  protected CardElementsItemTimeSeriesCardElement(Builder builder) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(builder.kind,
       "kind cannot be null");
     com.ibm.cloud.sdk.core.util.Validator.notNull(builder.text,
@@ -179,43 +186,10 @@ public class TimeSeriesCardElement extends CardElement {
   /**
    * New builder.
    *
-   * @return a TimeSeriesCardElement builder
+   * @return a CardElementsItemTimeSeriesCardElement builder
    */
   public Builder newBuilder() {
     return new Builder(this);
-  }
-
-  /**
-   * Gets the text.
-   *
-   * The text of this card element.
-   *
-   * @return the text
-   */
-  public String text() {
-    return text;
-  }
-
-  /**
-   * Gets the defaultInterval.
-   *
-   * The default interval of the time series.
-   *
-   * @return the defaultInterval
-   */
-  public String defaultInterval() {
-    return defaultInterval;
-  }
-
-  /**
-   * Gets the valueTypes.
-   *
-   * the value types associated to this card element.
-   *
-   * @return the valueTypes
-   */
-  public List<FindingCountValueType> valueTypes() {
-    return valueTypes;
   }
 }
 

@@ -11,9 +11,9 @@ import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiNote;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiNoteRelatedUrl;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiOccurrence;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiProvider;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.BreakdownCardElement;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItemBreakdownCardElement;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Card;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElement;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItem;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Context;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.CreateNoteOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.CreateOccurrenceOptions;
@@ -33,16 +33,15 @@ import com.ibm.cloud.securityadvisor.findings_api.v1.model.ListNotesOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ListOccurrencesOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.ListProvidersOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.NetworkConnection;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.NumericCardElement;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItemNumericCardElement;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.PostGraphOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.RemediationStep;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Reporter;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Section;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.SocketAddress;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.TimeSeriesCardElement;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItemTimeSeriesCardElement;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.UpdateNoteOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.UpdateOccurrenceOptions;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.ValueType;
 import com.ibm.cloud.sdk.core.service.exception.NotFoundException;
 
 import static org.junit.Assert.assertEquals;
@@ -60,11 +59,13 @@ public class FindingsApiIntegrationTest extends PowerMockTestCase{
     public String AccountId = System.getenv("ACCOUNT_ID");
     public String IamUrl = System.getenv("IAM_URL");
     public String ApiUrl = System.getenv("FINDINGS_API_URL");
+    
     public Authenticator authenticator = new IamAuthenticator(ApiKey, IamUrl, null, null, true, null);
     public FindingsApi findingsApi = new FindingsApi("findings_api", authenticator);
 
     @Test
     public void testPostGraph() throws Throwable  {
+        System.out.println(ApiKey+" "+AccountId+" "+IamUrl+" "+ApiUrl);
         findingsApi.setServiceUrl(ApiUrl);
         PostGraphOptions opts = new PostGraphOptions.Builder()
         .accountId(AccountId)
@@ -93,50 +94,10 @@ public class FindingsApiIntegrationTest extends PowerMockTestCase{
     public void testPostNote() throws Throwable  {
         findingsApi.setServiceUrl(ApiUrl);
 
-        FindingCountValueType findingCountValueTypeModel = new FindingCountValueType.Builder()
-        .kind("FINDING_COUNT")
-        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
-        .text("testString")
-        .build();
+        Authenticator authenticator = new IamAuthenticator(ApiKey, IamUrl, null, null, true, null);
 
-        TimeSeriesCardElement cardElementModel = new TimeSeriesCardElement.Builder()
-        .kind("TimeSeriesCardElement")
-        .defaultTimeRange("1d")
-        .text("testString")
-        .defaultInterval("testString")
-        .valueTypes(new java.util.ArrayList<FindingCountValueType>(java.util.Arrays.asList(findingCountValueTypeModel)))
-        .build();
-
-        RemediationStep remediationStepModel = new RemediationStep.Builder()
-        .title("testString")
-        .url("testString")
-        .build();
-
-        ApiNoteRelatedUrl apiNoteRelatedUrlModel = new ApiNoteRelatedUrl.Builder()
-        .label("testString")
-        .url("testString")
-        .build();
-
-        Card cardModel = new Card.Builder()
-        .section("testString")
-        .title("testString")
-        .subtitle("testString")
-        .order(Long.valueOf("1"))
-        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
-        .requiresConfiguration(true)
-        .badgeText("testString")
-        .badgeImage("testString")
-        .elements(new java.util.ArrayList<CardElement>(java.util.Arrays.asList(cardElementModel)))
-        .build();
-
-        FindingType findingTypeModel = new FindingType.Builder()
-        .severity("LOW")
-        .nextSteps(new java.util.ArrayList<RemediationStep>(java.util.Arrays.asList(remediationStepModel)))
-        .build();
-
-        KpiType kpiTypeModel = new KpiType.Builder()
-        .aggregationType("SUM")
-        .build();
+        FindingsApi findingsApi = new FindingsApi("findings_api", authenticator);
+        findingsApi.setServiceUrl(ApiUrl);
 
         Reporter reporterModel = new Reporter.Builder()
         .id("testString")
@@ -144,30 +105,65 @@ public class FindingsApiIntegrationTest extends PowerMockTestCase{
         .url("testString")
         .build();
 
-        Section sectionModel = new Section.Builder()
-        .title("testString")
-        .image("testString")
+        FindingCountValueType findingCountValueTypeModel = new FindingCountValueType.Builder()
+        .kind("FINDING_COUNT")
+        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
+        .text("testString")
+        .build();
+
+        CardElementsItemNumericCardElement cardElementModel = new CardElementsItemNumericCardElement.Builder()
+        .kind("NUMERIC")
+        .defaultTimeRange("1d")
+        .text("testString")
+        .valueType(findingCountValueTypeModel)
+        .build();
+
+        FindingCountValueType findingCount1 = new FindingCountValueType.Builder()
+        .kind("FINDING_COUNT")
+        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("providers/custom-provider/notes/custom-note")))
+        .text("testString")
+        .build();
+
+        FindingCountValueType findingCount2 = new FindingCountValueType.Builder()
+        .kind("FINDING_COUNT")
+        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("providers/custom-provider/notes/custom-note-1")))
+        .text("testString")
+        .build();
+
+        CardElementsItemTimeSeriesCardElement timeseriesElement = new CardElementsItemTimeSeriesCardElement.Builder()
+        .kind("TIME_SERIES")
+        .defaultTimeRange("1d")
+        .text("testString")
+        .valueTypes(new java.util.ArrayList<Object>(java.util.Arrays.asList(findingCount1, findingCount2)))
+        .build();
+
+        Card cardModel = new Card.Builder()
+        .section("My Security Tools")
+        .title("My new ts card")
+        .subtitle("Time Series")
+        .order(Long.valueOf("4"))
+        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("providers/custom-provider/notes/custom-note", "providers/custom-provider/notes/custom-note-1")))
+        .requiresConfiguration(false)
+        .badgeText("testString")
+        .elements(new java.util.ArrayList<CardElementsItem>(java.util.Arrays.asList(cardElementModel, timeseriesElement)))
         .build();
 
         CreateNoteOptions createNoteOptionsModel = new CreateNoteOptions.Builder()
-        .accountId("testString")
+        .accountId(AccountId)
         .providerId("testString")
         .shortDescription("testString")
         .longDescription("testString")
-        .kind("FINDING")
-        .id("test1")
+        .kind("CARD")
+        .id("testString4")
         .reportedBy(reporterModel)
-        .relatedUrl(new java.util.ArrayList<ApiNoteRelatedUrl>(java.util.Arrays.asList(apiNoteRelatedUrlModel)))
         .shared(true)
-        .finding(findingTypeModel)
-        .kpi(kpiTypeModel)
         .card(cardModel)
-        .section(sectionModel)
         .build();
-        
+
         Response<ApiNote> resp = findingsApi.createNote(createNoteOptionsModel).execute();
+
         assertNotNull(resp);
-        assertEquals(resp.getStatusCode(), 200);
+        assertEquals(200, resp.getStatusCode());
     }
 
     @Test
@@ -209,12 +205,12 @@ public class FindingsApiIntegrationTest extends PowerMockTestCase{
         .text("testString")
         .build();
 
-        TimeSeriesCardElement cardElementModel = new TimeSeriesCardElement.Builder()
-        .kind("TimeSeriesCardElement")
+        CardElementsItemTimeSeriesCardElement cardElementModel = new CardElementsItemTimeSeriesCardElement.Builder()
+        .kind("TIME_SERIES")
         .defaultTimeRange("1d")
         .text("testString")
         .defaultInterval("testString")
-        .valueTypes(new java.util.ArrayList<FindingCountValueType>(java.util.Arrays.asList(findingCountValueTypeModel)))
+        .valueTypes(new java.util.ArrayList<Object>(java.util.Arrays.asList(findingCountValueTypeModel)))
         .build();
 
         RemediationStep remediationStepModel = new RemediationStep.Builder()
@@ -236,7 +232,7 @@ public class FindingsApiIntegrationTest extends PowerMockTestCase{
         .requiresConfiguration(true)
         .badgeText("testString")
         .badgeImage("testString")
-        .elements(new java.util.ArrayList<CardElement>(java.util.Arrays.asList(cardElementModel)))
+        .elements(new java.util.ArrayList<CardElementsItem>(java.util.Arrays.asList(cardElementModel)))
         .build();
 
         FindingType findingTypeModel = new FindingType.Builder()

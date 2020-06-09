@@ -165,8 +165,7 @@ public class FindingsApi extends BaseService {
       contentJson.add("kpi", com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(createNoteOptions.kpi()));
     }
     if (createNoteOptions.card() != null) {
-      System.out.println(createNoteOptions.card());
-      // contentJson.add("card", com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(createNoteOptions.card()));
+      contentJson.add("card", com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(createNoteOptions.card()));
     }
     if (createNoteOptions.section() != null) {
       contentJson.add("section", com.ibm.cloud.sdk.core.util.GsonSingleton.getGson().toJsonTree(createNoteOptions.section()));

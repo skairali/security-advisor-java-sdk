@@ -15,31 +15,40 @@ package com.ibm.cloud.securityadvisor.findings_api.v1.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.annotations.SerializedName;
-
 /**
  * A card element with a breakdown of values.
  */
-public class BreakdownCardElement extends CardElement {
+public class CardElementsItemBreakdownCardElement extends CardElementsItem {
 
   /**
    * Kind of element
-   * - NUMERIC&amp;#58; Single numeric value
-   * - BREAKDOWN&amp;#58; Breakdown of numeric values
-   * - TIME_SERIES&amp;#58; Time-series of numeric values.
+   * - NUMERIC&#58; Single numeric value
+   * - BREAKDOWN&#58; Breakdown of numeric values
+   * - TIME_SERIES&#58; Time-series of numeric values.
    */
   public interface Kind {
-    /** NUMERIC. */
+    /** numeric. */
     String NUMERIC = "NUMERIC";
-    /** BREAKDOWN. */
+    /** breakdown. */
     String BREAKDOWN = "BREAKDOWN";
-    /** TIME_SERIES. */
-    String TIME_SERIES = "TIME_SERIES";
+    /** time_series. */
+    String TIME_SERIES = "TIMESERIES";
   }
 
-  protected String text;
-  @SerializedName("value_types")
-  protected List<ValueType> valueTypes;
+  /**
+   * The default time range of this card element.
+   */
+  public interface DefaultTimeRange {
+    /** one_day. */
+    String ONE_DAY = "1d";
+    /** two_day. */
+    String TWO_DAY = "2d";
+    /** three_day. */
+    String THREE_DAY = "3d";
+    /** four_day. */
+    String FOUR_DAY = "4d";
+  }
+
 
   /**
    * Builder.
@@ -48,13 +57,13 @@ public class BreakdownCardElement extends CardElement {
     private String kind;
     private String defaultTimeRange;
     private String text;
-    private List<ValueType> valueTypes;
+    private List<Object> valueTypes;
 
-    public Builder(BreakdownCardElement breakdownCardElement) {
-      this.kind = breakdownCardElement.kind;
-      this.defaultTimeRange = breakdownCardElement.defaultTimeRange;
-      this.text = breakdownCardElement.text;
-      this.valueTypes = breakdownCardElement.valueTypes;
+    public Builder(CardElementsItem cardElementsItemBreakdownCardElement) {
+      this.kind = cardElementsItemBreakdownCardElement.kind;
+      this.defaultTimeRange = cardElementsItemBreakdownCardElement.defaultTimeRange;
+      this.text = cardElementsItemBreakdownCardElement.text;
+      this.valueTypes = cardElementsItemBreakdownCardElement.valueTypes;
     }
 
     /**
@@ -70,32 +79,32 @@ public class BreakdownCardElement extends CardElement {
      * @param text the text
      * @param valueTypes the valueTypes
      */
-    public Builder(String kind, String text, List<ValueType> valueTypes) {
+    public Builder(String kind, String text, List<Object> valueTypes) {
       this.kind = kind;
       this.text = text;
       this.valueTypes = valueTypes;
     }
 
     /**
-     * Builds a BreakdownCardElement.
+     * Builds a CardElementsItemBreakdownCardElement.
      *
-     * @return the new BreakdownCardElement instance
+     * @return the cardElementsItemBreakdownCardElement
      */
-    public BreakdownCardElement build() {
-      return new BreakdownCardElement(this);
+    public CardElementsItemBreakdownCardElement build() {
+      return new CardElementsItemBreakdownCardElement(this);
     }
 
     /**
      * Adds an valueTypes to valueTypes.
      *
      * @param valueTypes the new valueTypes
-     * @return the BreakdownCardElement builder
+     * @return the CardElementsItemBreakdownCardElement builder
      */
-    public Builder addValueTypes(ValueType valueTypes) {
+    public Builder addValueTypes(Object valueTypes) {
       com.ibm.cloud.sdk.core.util.Validator.notNull(valueTypes,
         "valueTypes cannot be null");
       if (this.valueTypes == null) {
-        this.valueTypes = new ArrayList<ValueType>();
+        this.valueTypes = new ArrayList<Object>();
       }
       this.valueTypes.add(valueTypes);
       return this;
@@ -105,7 +114,7 @@ public class BreakdownCardElement extends CardElement {
      * Set the kind.
      *
      * @param kind the kind
-     * @return the BreakdownCardElement builder
+     * @return the CardElementsItemBreakdownCardElement builder
      */
     public Builder kind(String kind) {
       this.kind = kind;
@@ -116,7 +125,7 @@ public class BreakdownCardElement extends CardElement {
      * Set the defaultTimeRange.
      *
      * @param defaultTimeRange the defaultTimeRange
-     * @return the BreakdownCardElement builder
+     * @return the CardElementsItemBreakdownCardElement builder
      */
     public Builder defaultTimeRange(String defaultTimeRange) {
       this.defaultTimeRange = defaultTimeRange;
@@ -127,7 +136,7 @@ public class BreakdownCardElement extends CardElement {
      * Set the text.
      *
      * @param text the text
-     * @return the BreakdownCardElement builder
+     * @return the CardElementsItemBreakdownCardElement builder
      */
     public Builder text(String text) {
       this.text = text;
@@ -138,16 +147,16 @@ public class BreakdownCardElement extends CardElement {
      * Set the valueTypes.
      * Existing valueTypes will be replaced.
      *
-     * @param valueTypes the valueTypes
-     * @return the BreakdownCardElement builder
+     * @param arrayList the valueTypes
+     * @return the CardElementsItemBreakdownCardElement builder
      */
-    public Builder valueTypes(List<ValueType> valueTypes) {
-      this.valueTypes = valueTypes;
+    public Builder valueTypes(ArrayList<Object> arrayList) {
+      this.valueTypes = arrayList;
       return this;
     }
   }
 
-  protected BreakdownCardElement(Builder builder) {
+  protected CardElementsItemBreakdownCardElement(Builder builder) {
     com.ibm.cloud.sdk.core.util.Validator.notNull(builder.kind,
       "kind cannot be null");
     com.ibm.cloud.sdk.core.util.Validator.notNull(builder.text,
@@ -163,32 +172,10 @@ public class BreakdownCardElement extends CardElement {
   /**
    * New builder.
    *
-   * @return a BreakdownCardElement builder
+   * @return a CardElementsItemBreakdownCardElement builder
    */
   public Builder newBuilder() {
     return new Builder(this);
-  }
-
-  /**
-   * Gets the text.
-   *
-   * The text of this card element.
-   *
-   * @return the text
-   */
-  public String text() {
-    return text;
-  }
-
-  /**
-   * Gets the valueTypes.
-   *
-   * the value types associated to this card element.
-   *
-   * @return the valueTypes
-   */
-  public List<ValueType> valueTypes() {
-    return valueTypes;
   }
 }
 

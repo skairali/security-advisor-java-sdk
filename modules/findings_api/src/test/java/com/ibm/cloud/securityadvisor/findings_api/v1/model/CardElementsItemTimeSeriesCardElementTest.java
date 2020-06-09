@@ -14,14 +14,10 @@
 package com.ibm.cloud.securityadvisor.findings_api.v1.model;
 
 import com.ibm.cloud.sdk.core.service.model.FileWithMetadata;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.FindingCountValueType;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.TimeSeriesCardElement;
 import com.ibm.cloud.securityadvisor.findings_api.v1.utils.TestUtilities;
 
 import java.io.InputStream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -31,7 +27,7 @@ import static org.testng.Assert.*;
 /**
  * Unit test class for the TimeSeriesCardElement model.
  */
-public class TimeSeriesCardElementTest {
+public class CardElementsItemTimeSeriesCardElementTest {
   final HashMap<String, InputStream> mockStreamMap = TestUtilities.createMockStreamMap();
   final List<FileWithMetadata> mockListFileWithMetadata = TestUtilities.creatMockListFileWithMetadata();
 
@@ -46,24 +42,24 @@ public class TimeSeriesCardElementTest {
     assertEquals(findingCountValueTypeModel.findingNoteNames(), new java.util.ArrayList<String>(java.util.Arrays.asList("testString")));
     assertEquals(findingCountValueTypeModel.text(), "testString");
 
-    TimeSeriesCardElement timeSeriesCardElementModel = new TimeSeriesCardElement.Builder()
-      .kind("TIME_SERIES")
+    CardElementsItemTimeSeriesCardElement timeSeriesCardElementModel = new CardElementsItemTimeSeriesCardElement.Builder()
+      .kind("TimeSeriesCardElement")
       .defaultTimeRange("1d")
       .text("testString")
       .defaultInterval("testString")
-      .valueTypes(new java.util.ArrayList<FindingCountValueType>(java.util.Arrays.asList(findingCountValueTypeModel)))
+      .valueTypes(new java.util.ArrayList<Object>(java.util.Arrays.asList(findingCountValueTypeModel)))
       .build();
-    assertEquals(timeSeriesCardElementModel.kind(), "TIME_SERIES");
+    assertEquals(timeSeriesCardElementModel.kind(), "TimeSeriesCardElement");
     assertEquals(timeSeriesCardElementModel.defaultTimeRange(), "1d");
     assertEquals(timeSeriesCardElementModel.text(), "testString");
     assertEquals(timeSeriesCardElementModel.defaultInterval(), "testString");
-    assertEquals(timeSeriesCardElementModel.valueTypes(), new java.util.ArrayList<FindingCountValueType>(java.util.Arrays.asList(findingCountValueTypeModel)));
+    assertEquals(timeSeriesCardElementModel.valueTypes(), new java.util.ArrayList<Object>(java.util.Arrays.asList(findingCountValueTypeModel)));
 
     String json = TestUtilities.serialize(timeSeriesCardElementModel);
 
-    TimeSeriesCardElement timeSeriesCardElementModelNew = TestUtilities.deserialize(json, TimeSeriesCardElement.class);
-    assertTrue(timeSeriesCardElementModelNew instanceof TimeSeriesCardElement);
-    assertEquals(timeSeriesCardElementModelNew.kind(), "TIME_SERIES");
+    CardElementsItemTimeSeriesCardElement timeSeriesCardElementModelNew = TestUtilities.deserialize(json, CardElementsItemTimeSeriesCardElement.class);
+    assertTrue(timeSeriesCardElementModelNew instanceof CardElementsItemTimeSeriesCardElement);
+    assertEquals(timeSeriesCardElementModelNew.kind(), "TimeSeriesCardElement");
     assertEquals(timeSeriesCardElementModelNew.defaultTimeRange(), "1d");
     assertEquals(timeSeriesCardElementModelNew.text(), "testString");
     assertEquals(timeSeriesCardElementModelNew.defaultInterval(), "testString");
@@ -71,7 +67,7 @@ public class TimeSeriesCardElementTest {
 
   @Test(expectedExceptions = IllegalArgumentException.class)
   public void testTimeSeriesCardElementError() throws Throwable {
-    new TimeSeriesCardElement.Builder().build();
+    new CardElementsItemTimeSeriesCardElement.Builder().build();
   }
 
 }

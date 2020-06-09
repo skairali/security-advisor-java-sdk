@@ -24,7 +24,7 @@ import com.ibm.cloud.securityadvisor.findings_api.v1.model.KpiType;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.RemediationStep;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Reporter;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Section;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.TimeSeriesCardElement;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItemTimeSeriesCardElement;
 import com.ibm.cloud.securityadvisor.findings_api.v1.utils.TestUtilities;
 
 import java.io.InputStream;

@@ -22,7 +22,7 @@ import com.ibm.cloud.securityadvisor.findings_api.v1.model.KpiType;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.RemediationStep;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Reporter;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.Section;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.TimeSeriesCardElement;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.CardElementsItemTimeSeriesCardElement;
 import com.ibm.cloud.securityadvisor.findings_api.v1.model.UpdateNoteOptions;
 import com.ibm.cloud.securityadvisor.findings_api.v1.utils.TestUtilities;
 
@@ -54,18 +54,18 @@ public class UpdateNoteOptionsTest {
     assertEquals(findingCountValueTypeModel.findingNoteNames(), new java.util.ArrayList<String>(java.util.Arrays.asList("testString")));
     assertEquals(findingCountValueTypeModel.text(), "testString");
 
-    TimeSeriesCardElement cardElementModel = new TimeSeriesCardElement.Builder()
-      .kind("TIME_SERIES")
+    CardElementsItemTimeSeriesCardElement cardElementModel = new CardElementsItemTimeSeriesCardElement.Builder()
+      .kind("TimeSeriesCardElement")
       .defaultTimeRange("1d")
       .text("testString")
       .defaultInterval("testString")
-      .valueTypes(new java.util.ArrayList<FindingCountValueType>(java.util.Arrays.asList(findingCountValueTypeModel)))
+      .valueTypes(new java.util.ArrayList<Object>(java.util.Arrays.asList(findingCountValueTypeModel)))
       .build();
-    assertEquals(cardElementModel.kind(), "TIME_SERIES");
+    assertEquals(cardElementModel.kind(), "TimeSeriesCardElement");
     assertEquals(cardElementModel.defaultTimeRange(), "1d");
     assertEquals(cardElementModel.text(), "testString");
     assertEquals(cardElementModel.defaultInterval(), "testString");
-    assertEquals(cardElementModel.valueTypes(), new java.util.ArrayList<FindingCountValueType>(java.util.Arrays.asList(findingCountValueTypeModel)));
+    assertEquals(cardElementModel.valueTypes(), new java.util.ArrayList<Object>(java.util.Arrays.asList(findingCountValueTypeModel)));
 
     RemediationStep remediationStepModel = new RemediationStep.Builder()
       .title("testString")
@@ -90,7 +90,7 @@ public class UpdateNoteOptionsTest {
       .requiresConfiguration(true)
       .badgeText("testString")
       .badgeImage("testString")
-      .elements(new java.util.ArrayList<CardElement>(java.util.Arrays.asList(cardElementModel)))
+      .elements(new java.util.ArrayList<CardElementsItem>(java.util.Arrays.asList(cardElementModel)))
       .build();
     assertEquals(cardModel.section(), "testString");
     assertEquals(cardModel.title(), "testString");
@@ -100,7 +100,7 @@ public class UpdateNoteOptionsTest {
     assertEquals(cardModel.requiresConfiguration(), Boolean.valueOf(true));
     assertEquals(cardModel.badgeText(), "testString");
     assertEquals(cardModel.badgeImage(), "testString");
-    assertEquals(cardModel.elements(), new java.util.ArrayList<CardElement>(java.util.Arrays.asList(cardElementModel)));
+    assertEquals(cardModel.elements(), new java.util.ArrayList<CardElementsItem>(java.util.Arrays.asList(cardElementModel)));
 
     FindingType findingTypeModel = new FindingType.Builder()
       .severity("LOW")
