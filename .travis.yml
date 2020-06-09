@@ -42,7 +42,9 @@ before_deploy:
 
 deploy:
   - provider: script
-    file: ./*.jar
+    file:
+      - "modules/findings_api/target/*.jar"
+      - "modules/notifications_api/target/*.jar"
     script: npx semantic-release
     skip_cleanup: true
     on:
