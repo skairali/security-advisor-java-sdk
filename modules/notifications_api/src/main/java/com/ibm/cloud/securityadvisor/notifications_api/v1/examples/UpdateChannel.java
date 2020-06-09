@@ -2,12 +2,16 @@ package com.ibm.cloud.securityadvisor.notifications_api.v1.examples;
 
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.securityadvisor.notifications_api.v1.NotificationsApi;
-import com.ibm.cloud.securityadvisor.notifications_api.v1.model.*;
+import com.ibm.cloud.securityadvisor.notifications_api.v1.model.NotificationChannelAlertSourceItem;
+import com.ibm.cloud.securityadvisor.notifications_api.v1.model.UpdateNotificationChannelOptions;
+import com.ibm.cloud.securityadvisor.notifications_api.v1.model.UpdateChannelResponse;
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
 import com.ibm.cloud.sdk.core.security.Authenticator;
 
 public class UpdateChannel {
-    
+
+    private UpdateChannel() { }
+
     public static void main(String[] args) {
         Authenticator authenticator = new IamAuthenticator("<apiKey>");
 

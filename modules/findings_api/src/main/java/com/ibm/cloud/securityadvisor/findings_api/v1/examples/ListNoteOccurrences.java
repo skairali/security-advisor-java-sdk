@@ -4,10 +4,13 @@ import com.ibm.cloud.sdk.core.security.IamAuthenticator;
 import com.ibm.cloud.sdk.core.security.Authenticator;
 import com.ibm.cloud.sdk.core.http.Response;
 import com.ibm.cloud.securityadvisor.findings_api.v1.FindingsApi;
-import com.ibm.cloud.securityadvisor.findings_api.v1.model.*;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.ListNoteOccurrencesOptions;
+import com.ibm.cloud.securityadvisor.findings_api.v1.model.ApiListNoteOccurrencesResponse;
 
 public class ListNoteOccurrences {
-    
+
+    private ListNoteOccurrences() { }
+
     public static void main(String[] args) {
         Authenticator authenticator = new IamAuthenticator("<apiKey>");
 

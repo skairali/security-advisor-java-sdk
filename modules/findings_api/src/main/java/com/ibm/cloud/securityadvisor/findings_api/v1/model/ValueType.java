@@ -68,7 +68,6 @@ public class ValueType extends GenericModel {
    * Kind of element - KPI&amp;#58; Kind of value derived from a KPI occurrence - FINDING_COUNT&amp;#58; Kind of value
    * derived from a count of finding occurrences.
    *
-   * @return the kind
    */
   public void setKind(String kind) {
     this.kind = kind;
@@ -79,7 +78,6 @@ public class ValueType extends GenericModel {
    *
    * The text of this element type.
    *
-   * @return the text
    */
   public void setText(String text) {
     this.text = text;

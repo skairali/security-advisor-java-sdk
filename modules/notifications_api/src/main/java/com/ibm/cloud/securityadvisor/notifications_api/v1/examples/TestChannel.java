@@ -9,6 +9,8 @@ import com.ibm.cloud.sdk.core.security.Authenticator;
 
 public final class TestChannel {
 
+    private TestChannel() { }
+
     public static void main(String[] args) {
         Authenticator authenticator = new IamAuthenticator("<apiKey>");
 

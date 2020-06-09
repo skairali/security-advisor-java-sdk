@@ -9,6 +9,8 @@ import java.io.ByteArrayInputStream;
 
 public class PostGraph {
 
+    private PostGraph() { }
+
     public static void main(String[] args) {
         Authenticator authenticator = new IamAuthenticator("<apiKey>");
 
@@ -26,5 +28,4 @@ public class PostGraph {
         Response<Void> resp = findingsApi.postGraph(opts).execute();
         System.out.println(resp.getResult());
     }
-
 }

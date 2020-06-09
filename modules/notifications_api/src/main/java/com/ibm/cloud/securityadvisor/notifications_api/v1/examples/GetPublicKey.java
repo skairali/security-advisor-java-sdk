@@ -9,6 +9,8 @@ import com.ibm.cloud.sdk.core.security.Authenticator;
 
 public final class GetPublicKey {
 
+    private GetPublicKey() { }
+
     public static void main(String[] args) {
         Authenticator authenticator = new IamAuthenticator("<apiKey>");
 
