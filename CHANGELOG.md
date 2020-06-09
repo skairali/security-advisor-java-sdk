@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/gary1998/security-advisor-java-sdk/compare/1.3.0...1.4.0) (2020-06-09)
+
+
+### Features
+
+* **JAR Release:** releasing findings and notifications java sdk jar ([aeddf25](https://github.com/gary1998/security-advisor-java-sdk/commit/aeddf25542a5cb7186740f13d3501f38b50c1f24))
+
 # [1.3.0](https://github.com/gary1998/security-advisor-java-sdk/compare/1.2.0...1.3.0) (2020-06-09)
 
 
