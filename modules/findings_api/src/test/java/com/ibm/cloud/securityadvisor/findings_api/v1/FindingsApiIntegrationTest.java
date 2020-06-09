@@ -120,13 +120,13 @@ public class FindingsApiIntegrationTest extends PowerMockTestCase{
 
         FindingCountValueType findingCount1 = new FindingCountValueType.Builder()
         .kind("FINDING_COUNT")
-        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("providers/custom-provider/notes/custom-note")))
+        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
         .text("testString")
         .build();
 
         FindingCountValueType findingCount2 = new FindingCountValueType.Builder()
         .kind("FINDING_COUNT")
-        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("providers/custom-provider/notes/custom-note-1")))
+        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString")))
         .text("testString")
         .build();
 
@@ -138,11 +138,11 @@ public class FindingsApiIntegrationTest extends PowerMockTestCase{
         .build();
 
         Card cardModel = new Card.Builder()
-        .section("My Security Tools")
-        .title("My new ts card")
-        .subtitle("Time Series")
-        .order(Long.valueOf("4"))
-        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("providers/custom-provider/notes/custom-note", "providers/custom-provider/notes/custom-note-1")))
+        .section("testString")
+        .title("testString")
+        .subtitle("testString")
+        .order(Long.valueOf("1"))
+        .findingNoteNames(new java.util.ArrayList<String>(java.util.Arrays.asList("testString", "testString")))
         .requiresConfiguration(false)
         .badgeText("testString")
         .elements(new java.util.ArrayList<CardElementsItem>(java.util.Arrays.asList(cardElementModel, timeseriesElement)))
@@ -154,7 +154,7 @@ public class FindingsApiIntegrationTest extends PowerMockTestCase{
         .shortDescription("testString")
         .longDescription("testString")
         .kind("CARD")
-        .id("testString4")
+        .id("testString")
         .reportedBy(reporterModel)
         .shared(true)
         .card(cardModel)
@@ -256,7 +256,7 @@ public class FindingsApiIntegrationTest extends PowerMockTestCase{
         .build();
 
         UpdateNoteOptions opts = new UpdateNoteOptions.Builder()
-        .accountId("testString")
+        .accountId(AccountId)
         .providerId("testString")
         .shortDescription("testString")
         .longDescription("testString")
