@@ -1,8 +1,8 @@
 [![Build Status](https://travis.ibm.com/ibmcloud/platform-services-java-sdk.svg?token=eW5FVD71iyte6tTby8gr&branch=master)](https://travis.ibm.com/ibmcloud/platform-services-java-sdk)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-# IBM Cloud My Services Java SDK Version 0.0.1
-Java client library to interact with various [IBM Cloud My Services](https://cloud.ibm.com/apidocs?category=<service-category>).
+# IBM Cloud Security Advisor Java SDK Version 1.0.0
+Java client library to interact with various [IBM Cloud Security Advisor](https://cloud.ibm.com/apidocs?category=<service-category>).
 
 Disclaimer: this SDK is being released initially as a **pre-release** version.
 Changes might occur which impact applications that use this SDK.
@@ -35,11 +35,12 @@ Changes might occur which impact applications that use this SDK.
 
 ## Overview
 
-The IBM Cloud My Services Java SDK allows developers to programmatically interact with the following IBM Cloud services:
+The IBM Cloud Security Advisor Java SDK allows developers to programmatically interact with the following IBM Cloud services:
 
 Service Name | Artifact Coordinates
 --- | --- 
-[Example Service](https://cloud.ibm.com/apidocs/example-service) | com.ibm.cloud:example-service:0.0.1
+[IBM Cloud Security Advisor Findings API](https://cloud.ibm.com/apidocs/findings) | com.ibm.cloud.securityadvisor:findings_api:1.0.0
+[IBM Cloud Security Advisor Notifications API](https://cloud.ibm.com/apidocs/notifications) | com.ibm.cloud.securityadvisor:notifications_api:1.0.0
 
 ## Prerequisites
 
@@ -50,7 +51,7 @@ Service Name | Artifact Coordinates
 * Java 8 or above.
 
 ## Installation
-The current version of this SDK is: 0.0.1
+The current version of this SDK is: 1.0.0
 
 Each service's artifact coordinates are listed in the table above.
 
@@ -71,18 +72,23 @@ artifact coordinates (group id, artifact id and version) for the service, like t
 ```xml
 <dependency>
     <groupId>com.ibm.cloud</groupId>
-    <artifactId>example-service</artifactId>
-    <version>0.0.1</version>
+    <artifactId>securityadvisor</artifactId>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 ##### Gradle
 ```gradle
-'com.ibm.cloud:example-service:0.0.1'
+'com.ibm.cloud:securityadvisor:1.0.0'
 ```
 
 ## Using the SDK
 For general SDK usage information, please see [this link](https://github.com/IBM/ibm-cloud-sdk-common/blob/master/README.md)
+
+For Findings API module usage information of the SDK, please see [this link](https://github.ibm.com/gauragos/securityadvisor-java-sdk/tree/master/modules/findings_api)
+
+For Notifications API module usage information of the SDK, please see [this link](https://github.ibm.com/gauragos/securityadvisor-java-sdk/tree/master/modules/notifications_api)
+
 
 ## Questions
 

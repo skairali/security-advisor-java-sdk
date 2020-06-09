@@ -3,19 +3,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- >>> Replace this with your service category (e.g. "platform-services") -->
-    <artifactId>my-services</artifactId>
+    <artifactId>securityadvisor</artifactId>
 
     <!-- >>> Update this field to reflect your project -->
-    <name>IBM Cloud My Services Java SDK</name>
+    <name>IBM Cloud Security Advisor Java SDK</name>
 
     <!-- >>> Update this field to reflect your project -->
-    <description>Java Client Library to access the IBM Cloud My Services</description>
+    <description>Java Client Library to access the IBM Cloud Security Advisor</description>
 
     <!-- >>> Update this field to reflect your project's github URL -->
-    <url>https://github.ibm.com/CloudEngineering/java-sdk-template</url>
+    <url>https://github.ibm.com/gauragos/securityadvisor-java-sdk</url>
 
     <groupId>com.ibm.cloud</groupId>
-    <version>99-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -27,7 +27,7 @@
         <sdk-core-version>8.3.0</sdk-core-version>
 
         <!-- >>> Replace this with the name of your SDK's github repository -->
-        <git-repository-name>my-services-java-sdk</git-repository-name>
+        <git-repository-name>securityadvsior-java-sdk</git-repository-name>
 
         <testng-version>7.1.0</testng-version>
         <okhttp3-version>3.13.1</okhttp3-version>
@@ -48,11 +48,11 @@
         <mockito-version>3.2.4</mockito-version>
 
         <!-- Deployment-related properties -->
-        <bintray.org>ibm-cloud-sdks</bintray.org>
+        <!-- <bintray.org>bintray-gauragos-ibmcloud-securityadvisor-java-sdk</bintray.org> -->
         <!-- >>> Replace this with the name of your project's bintray repository -->
-        <bintray.repo>YOUR BINTRAY REPOSITORY NAME</bintray.repo>
+        <!-- <bintray.repo>bintray</bintray.repo> -->
         <!-- >>> Replace this with your github repository's URL -->
-        <bintray.package.url>YOUR PROJECT'S GITHUB.COM URL</bintray.package.url>
+        <!-- <bintray.package.url>https://dl.bintray.com/gauragos/ibmcloud-securityadvisor-java-sdk</bintray.package.url> -->
     </properties>
 
     <modules>
@@ -60,7 +60,10 @@
         <module>modules/common</module>
 
         <!-- >>> List each service's module here -->
-        <module>modules/example-service</module>
+        <module>modules/findings_api</module>
+
+        <!-- >>> List each service's module here -->
+        <module>modules/notifications_api</module>
 
         <!-- This module should always be listed last -->
         <module>modules/coverage-reports</module>
@@ -74,26 +77,26 @@
     </licenses>
 
     <organization>
-        <name>IBM Cloud</name>
+        <name>IBM Cloud Security Advisor</name>
     </organization>
 
     <!-- >>> Update these values to reflect your project -->
     <scm>
-        <connection>scm:git:https://github.ibm.com/CloudEngineering/java-sdk-template</connection>
-        <developerConnection>scm:git:https://github.ibm.com/CloudEngineering/java-sdk-template</developerConnection>
-        <url>https://github.ibm.com/CloudEngineering/java-sdk-template/tree/master</url>
+        <connection>scm:git:https://github.ibm.com/gauragos/securityadvisor-java-sdk</connection>
+        <developerConnection>scm:git:https://github.ibm.com/gauragos/securityadvisor-java-sdk</developerConnection>
+        <url>https://github.ibm.com/gauragos/securityadvisor-java-sdk/tree/master</url>
     </scm>
 
     <!-- >>> Update these values to reflect your project -->
     <issueManagement>
         <system>Github</system>
-        <url>https://github.ibm.com/CloudEngineering/java-sdk-template/issues</url>
+        <url>https://github.ibm.com/gauragos/securityadvisor-java-sdk/issues</url>
     </issueManagement>
 
     <!-- >>> Update these values to reflect your project -->
     <ciManagement>
         <system>Travis-CI</system>
-        <url>https://travis.ibm.com/CloudEngineering/java-sdk-template/</url>
+        <url>https://travis.ibm.com/gauragos/securityadvisor-java-sdk/</url>
     </ciManagement>
 
     <repositories>
@@ -109,10 +112,16 @@
         </repository>
     </repositories>
 
-    <!-- This section is commented out because we use an alternate deploy plugin. 
-    <distributionManagement>
-    </distributionManagement> 
-    -->
+    <!-- <distributionManagement>
+        <repository>
+            <id>na-artifactory-ibmcloud-sdks</id>
+            <url>https://na.artifactory.swg-devops.com:443/artifactory/wcp-ibmcloud-sdks-team-maven-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>na-artifactory-sdkcodegen</id>
+            <url>https://na.artifactory.swg-devops.com:443/artifactory/wcp-ibmcloud-sdks-team-maven-local</url>
+        </snapshotRepository>
+    </distributionManagement> -->
 
     <dependencyManagement>
         <dependencies>

@@ -3,19 +3,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- >>> Replace this with your service category (e.g. "platform-services") -->
-    <artifactId>my-services</artifactId>
+    <artifactId>securityadvisor</artifactId>
 
     <!-- >>> Update this field to reflect your project -->
-    <name>IBM Cloud My Services Java SDK</name>
+    <name>IBM Cloud Security Advisor Java SDK</name>
 
     <!-- >>> Update this field to reflect your project -->
-    <description>Java Client Library to access the IBM Cloud My Services</description>
+    <description>Java Client Library to access the IBM Cloud Security Advisor</description>
 
     <!-- >>> Update this field to reflect your project's github URL -->
     <url>https://github.ibm.com/CloudEngineering/java-sdk-template</url>
 
     <groupId>com.ibm.cloud</groupId>
-    <version>99-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -27,7 +27,7 @@
         <sdk-core-version>8.3.0</sdk-core-version>
 
         <!-- >>> Replace this with the name of your SDK's github repository -->
-        <git-repository-name>my-services-java-sdk</git-repository-name>
+        <git-repository-name>securityadvisor-java-sdk</git-repository-name>
 
         <testng-version>7.1.0</testng-version>
         <okhttp3-version>3.13.1</okhttp3-version>
@@ -50,9 +50,9 @@
         <!-- Deployment-related properties -->
         <bintray.org>ibm-cloud-sdks</bintray.org>
         <!-- >>> Replace this with the name of your project's bintray repository -->
-        <bintray.repo>YOUR BINTRAY REPOSITORY NAME</bintray.repo>
+        <bintray.repo>securityadvisor-java-sdk</bintray.repo>
         <!-- >>> Replace this with your github repository's URL -->
-        <bintray.package.url>YOUR PROJECT'S GITHUB.COM URL</bintray.package.url>
+        <bintray.package.url>https://github.ibm.com/gauragos/securityadvisor-java-sdk</bintray.package.url>
     </properties>
 
     <modules>

@@ -3,7 +3,7 @@ language: java
 dist: xenial
 
 jdk:
-  - openjdk8
+- openjdk8
 
 notifications:
   email: true
@@ -20,30 +20,17 @@ cache:
   directories:
   - "$HOME/.m2"
 
-# After creating your SDK project from this template repository,
-# remove this entire "jobs" section as this is only applicable
-# to the template repo's travis build.
-jobs:
-  include:
-    - stage: Build and run tests
-    - stage: Run system test with template
-      script:
-        - git clone git@github.ibm.com:CloudEngineering/sdkgen-systest.git
-        - cd sdkgen-systest
-        - ./install_scripts/install_deps_ubuntu.sh
-        - ./setup_and_generate.sh -l ibm-java -t $TRAVIS_BRANCH
-
 before_install:
 - sudo apt-get update
 - sudo apt-get install python
 - nvm install 12
 - npm install -g npm@6.x
-# - '[ "${TRAVIS_PULL_REQUEST}" == "false" ] && openssl aes-256-cbc -K $my_key  -iv $my_iv -in myservice.env.enc -out myservice.env -d || true'
 
-install:
-- curl -s https://codecov.io/bash > $HOME/codecov-bash.sh && chmod +x $HOME/codecov-bash.sh
+install: true
 
+# For a tagged build, we'll set the maven artifact version #.
 before_script:
+- openssl aes-256-cbc -K $ghost_key -iv $ghost_iv -in .ghostenv.enc -out .ghostenv -d || true
 - echo "TRAVIS_TAG = '${TRAVIS_TAG}'"
 - >-
       [ -n "${TRAVIS_TAG}" ]
@@ -51,41 +38,18 @@ before_script:
       || true
 
 script:
--  mvn clean verify $MVN_ARGS
+-  if [[ -n "$TRAVIS_TAG" ]]; then mvn deploy $MVN_ARGS; else mvn package $MVN_ARGS; fi
  
-# To enable semantic-release, uncomment these sections.
-# before_deploy:
-# - pip install --user bump2version
-# - npm install @semantic-release/changelog
-# - npm install @semantic-release/exec
-# - npm install @semantic-release/git
-# - npm install @semantic-release/github
-# 
-# deploy:
-#   # On master, run semrel to create a new tagged-release.
-#   - provider: script
-#     script: npx semantic-release
-#     skip_cleanup: true
-#     on:
-#       branch: master
-#   # Publish jars on bintray for a tagged release.
-#   - provider: script
-#     script: "mvn deploy $MVN_ARGS -DskipTests"
-#     skip_cleanup: true
-#     on:
-#       tags: true
-#       jdk: openjdk8
-#   # Publish javadocs to gh-pages only for a tagged-release.
-#   - provider: script
-#     script: "./build/publish-javadoc.sh"
-#     skip_cleanup: true
-#     on:
-#       tags: true
-#       jdk: openjdk8
-#   # Upload code coverage reports to codecov.io for master or tagged release
-#   - provider: script
-#     script: $HOME/codecov-bash.sh -s modules/coverage-reports/target/site/jacoco-aggregate -t $CODECOV_TOKEN
-#     skip_cleanup: true
-#     on:
-#       condition: $TRAVIS_BRANCH == master || -n "$TRAVIS_TAG"
-#       jdk: openjdk8
+before_deploy:
+- pip install --user bump2version
+- npm install @semantic-release/changelog
+- npm install @semantic-release/exec
+- npm install @semantic-release/git
+- npm install @semantic-release/github
+
+deploy:
+  - provider: script
+    script: npx semantic-release
+    skip_cleanup: true
+    on:
+      branch: master
