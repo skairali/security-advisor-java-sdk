@@ -1,4 +1,4 @@
-[![Build Status](https://travis.ibm.com/ibmcloud/platform-services-java-sdk.svg?token=eW5FVD71iyte6tTby8gr&branch=master)](https://travis-ci.com/github/gary1998/security-advisor-java-sdk)
+[![Build Status](https://travis-ci.com/gary1998/security-advisor-java-sdk.svg?branch=master)](https://travis-ci.com/github/gary1998/security-advisor-java-sdk)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 # IBM Cloud Security Advisor Java SDK Version 1.6.0
