@@ -23,10 +23,10 @@
         "assets": 
         [
           {
-            "path": "modules/findings_api/target/findings_api-1.0.0.jar", "label": "Findings SDK Distribution"
+            "path": "modules/findings_api/target/findings_api-1.0.0.jar", "label": "Findings SDK Distribution", "name": "findings_api-${nextRelease.version}.jar"
           },
           {
-            "path": "modules/notifications_api/target/notifications_api-1.0.0.jar", "label": "Notifications SDK Distribution"
+            "path": "modules/notifications_api/target/notifications_api-1.0.0.jar", "label": "Notifications SDK Distribution", "name": "notifications_api-${nextRelease.version}.jar"
           }
         ]
       }
