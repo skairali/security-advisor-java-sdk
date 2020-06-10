@@ -1,3 +1,14 @@
+## [1.6.2](https://github.com/gary1998/security-advisor-java-sdk/compare/1.6.1...1.6.2) (2020-06-10)
+
+
+### Reverts
+
+* Revert "changes in travis config" ([c776c05](https://github.com/gary1998/security-advisor-java-sdk/commit/c776c059052c18a18279ae844031df8183371580))
+* Revert "changes" ([ae0fa6c](https://github.com/gary1998/security-advisor-java-sdk/commit/ae0fa6c93d802752ed79668669b63daec1cc0c4d))
+* Revert "Revert "changes"" ([495a0b8](https://github.com/gary1998/security-advisor-java-sdk/commit/495a0b8a65b61bfc882097d36ae594062efb60e5))
+* Revert "Revert "Merge branch 'master' of https://github.com/gary1998/security-advisor-java-sdk"" ([55ccd75](https://github.com/gary1998/security-advisor-java-sdk/commit/55ccd752aa059bb332ccb460676b76ec66a211c9))
+* Revert "fix(some fixes)" ([932e70c](https://github.com/gary1998/security-advisor-java-sdk/commit/932e70c2da01ea2f9fe9954d5e038c0bc0c797ee))
+
 # [1.6.0](https://github.com/gary1998/security-advisor-java-sdk/compare/1.5.0...1.6.0) (2020-06-09)
 
 
