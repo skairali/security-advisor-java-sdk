@@ -39,7 +39,6 @@ script:
 -  if [[ -n "$TRAVIS_TAG" ]]; then mvn deploy $MVN_ARGS; else mvn package $MVN_ARGS; fi
  
 before_deploy:
-
 - pip install --user bump2version
 - npm install @semantic-release/changelog
 - npm install @semantic-release/exec
