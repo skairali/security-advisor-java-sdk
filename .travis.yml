@@ -42,7 +42,7 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: ls -la && npx semantic-release && cd modules/findings_api/target && ls -la
+    script: npx semantic-release && cd modules/findings_api/target && ls -la
     skip_cleanup: true
     on:
       branch: master
