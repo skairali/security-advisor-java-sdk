@@ -1,6 +1,7 @@
 ---
 language: java
 dist: xenial
+os: linux
 
 jdk:
 - openjdk8
@@ -31,7 +32,7 @@ before_script:
       || true
 
 script:
--  if [[ -n "$TRAVIS_TAG" ]]; then mvn deploy $MVN_ARGS; else mvn package $MVN_ARGS; fi
+-  if [[ -n "$TRAVIS_TAG" ]]; then mvn deploy $MVN_ARGS; else mvn clean package $MVN_ARGS; fi
  
 before_deploy:
 - pip install --user bump2version
@@ -42,7 +43,15 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: ls -la && npx semantic-release && cd modules/findings_api/target && ls -la
-    skip_cleanup: true
+    script: npx semantic-release
+    cleanup: false
+    on:
+      branch: master
+  - provider: releases
+    cleanup: false
+    token: "$GH_TOKEN"
+    file:
+      - "modules/findings_api/target/*.jar"
+      - "modules/notifications_api/target/*.jar"
     on:
       branch: master
