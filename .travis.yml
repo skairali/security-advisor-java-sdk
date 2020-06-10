@@ -1,6 +1,7 @@
 ---
 language: java
 dist: xenial
+os: linux
 
 jdk:
 - openjdk8
@@ -40,23 +41,23 @@ script:
  
 before_deploy:
 - pip install --user bump2version
-- npm install @semantic-release/changelog
-- npm install @semantic-release/exec
-- npm install @semantic-release/git
-- npm install @semantic-release/github
+- npm install @semantic-release/changelog -g
+- npm install @semantic-release/exec -g
+- npm install @semantic-release/git -g
+- npm install @semantic-release/github -g
 
 deploy:
   - provider: script
     script: npx semantic-release
-    clean: false
+    cleanup: false
     on:
       branch: master
-  - provider: releases
-    api_key: "$GH_TOKEN"
-    file:
-      - "modules/findings_api/target/*.jar"
-      - "modules/notifications_api/target/*.jar"
-    file_glob: true
-    clean: false
-    on:
-      branch: master
+  # - provider: releases
+  #   token: "$GH_TOKEN"
+  #   file:
+  #     - "modules/findings_api/target/*.jar"
+  #     - "modules/notifications_api/target/*.jar"
+  #   file_glob: true
+  #   cleanup: false
+  #   on:
+  #     branch: master
