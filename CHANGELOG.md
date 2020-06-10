@@ -1,14 +1,3 @@
-## [1.6.1](https://github.com/gary1998/security-advisor-java-sdk/compare/1.6.0...1.6.1) (2020-06-10)
-
-
-### Reverts
-
-* Revert "feat(JAVA SDK): jar release support." ([a270005](https://github.com/gary1998/security-advisor-java-sdk/commit/a270005cec74905795426aa7cfb19aec1ed15381))
-* Revert "feat(JAVA SDK): jar release support." ([fb64526](https://github.com/gary1998/security-advisor-java-sdk/commit/fb645260dea25e4a063568d84ac5ce51d7ec4e59))
-* Revert "feat(JAVA SDK): jar release support." ([ce554e3](https://github.com/gary1998/security-advisor-java-sdk/commit/ce554e31f3820eceda78e0b29d00feed81200604))
-* Revert "feat(JAVA SDK): jar release support." ([6636ff1](https://github.com/gary1998/security-advisor-java-sdk/commit/6636ff1886546bed2bad0c9d1b05e661e1712960))
-* Revert "feat(JAVA SDK): just some workaround" ([0455e4a](https://github.com/gary1998/security-advisor-java-sdk/commit/0455e4aab7c1579c0015d94316c7a725841ad104))
-
 # [1.6.0](https://github.com/gary1998/security-advisor-java-sdk/compare/1.5.0...1.6.0) (2020-06-09)
 
 
