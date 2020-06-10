@@ -52,12 +52,12 @@ deploy:
     clean: false
     on:
       branch: master
-  - provider: releases
-    api_key: "$GH_TOKEN"
-    file:
-      - "modules/findings_api/target/*.jar"
-      - "modules/notifications_api/target/*.jar"
-    file_glob: true
-    clean: false
-    on:
-      branch: master
+  # - provider: releases
+  #   api_key: "$GH_TOKEN"
+  #   file:
+  #     - "modules/findings_api/target/*.jar"
+  #     - "modules/notifications_api/target/*.jar"
+  #   file_glob: true
+  #   clean: false
+  #   on:
+  #     branch: master
