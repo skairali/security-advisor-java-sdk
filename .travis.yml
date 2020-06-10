@@ -9,16 +9,11 @@ branches:
   except:
   - gh-pages
 
-env:
-  global:
-    - MVN_ARGS="--settings build/.travis.settings.xml"
-
 cache:
   directories:
   - "$HOME/.m2"
 
 before_install:
-- mvn clean
 - sudo apt-get update
 - sudo apt-get install python
 - nvm install 12
@@ -39,7 +34,6 @@ script:
 -  if [[ -n "$TRAVIS_TAG" ]]; then mvn deploy $MVN_ARGS; else mvn package $MVN_ARGS; fi
  
 before_deploy:
-
 - pip install --user bump2version
 - npm install @semantic-release/changelog
 - npm install @semantic-release/exec
@@ -48,16 +42,7 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: npx semantic-release
-    clean: false
-    on:
-      branch: master
-  - provider: releases
-    api_key: "$GH_TOKEN"
-    file:
-      - "modules/findings_api/target/*.jar"
-      - "modules/notifications_api/target/*.jar"
-    file_glob: true
-    clean: false
+    script: ls -la && npx semantic-release && cd modules/findings_api/target && ls -la
+    skip_cleanup: true
     on:
       branch: master
