@@ -47,11 +47,11 @@ deploy:
     cleanup: false
     on:
       branch: master
-  - provider: releases
-    cleanup: false
-    token: "$GH_TOKEN"
-    file:
-      - "modules/findings_api/target/*.jar"
-      - "modules/notifications_api/target/*.jar"
-    on:
-      branch: master
+  # - provider: releases
+  #   cleanup: false
+  #   token: "$GH_TOKEN"
+  #   file:
+  #     - "modules/findings_api/target/*.jar"
+  #     - "modules/notifications_api/target/*.jar"
+  #   on:
+  #     branch: master
